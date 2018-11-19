@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[larry kubin]]></title><description><![CDATA[personal web page of larry kubin]]></description><link>https://larrykubin.github.io</link><generator>RSS for Node</generator><lastBuildDate>Sun, 18 Nov 2018 20:41:19 GMT</lastBuildDate><item><title><![CDATA[php on linode]]></title><description><![CDATA[After a long hiatus from PHP, I am now working on a large PHP codebase, so it’s time for me to get up to speed with some of the modern PHP…]]></description><link>https://larrykubin.github.io/php-on-linode/</link><guid isPermaLink="false">https://larrykubin.github.io/php-on-linode/</guid><pubDate>Sun, 18 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;After a long hiatus from PHP, I am now working on a large PHP codebase, so it’s time for me to get up to speed with some of the modern PHP frameworks like
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[larry kubin]]></title><description><![CDATA[personal web page of larry kubin]]></description><link>https://larrykubin.github.io</link><generator>RSS for Node</generator><lastBuildDate>Mon, 19 Nov 2018 15:44:08 GMT</lastBuildDate><item><title><![CDATA[php on linode]]></title><description><![CDATA[After a long hiatus from PHP, I am now working on a large PHP codebase. So it’s time for me to get up to speed with some of the modern PHP…]]></description><link>https://larrykubin.github.io/php-on-linode/</link><guid isPermaLink="false">https://larrykubin.github.io/php-on-linode/</guid><pubDate>Sun, 18 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;After a long hiatus from PHP, I am now working on a large PHP codebase. So it’s time for me to get up to speed with some of the modern PHP frameworks like
 &lt;a href=&quot;https://lumen.laravel.com/&quot;&gt;Lumen&lt;/a&gt;, &lt;a href=&quot;https://laravel.com&quot;&gt;Laravel&lt;/a&gt;, and &lt;a href=&quot;https://www.slimframework.com/&quot;&gt;Slim&lt;/a&gt;. I just set up a
 new personal site using &lt;a href=&quot;/hello-gatsbyjs/&quot;&gt;gatsby.js&lt;/a&gt; that I will be using to document hobby projects, and I’ll use PHP to develop backend services for some of these projects. &lt;/p&gt;
-&lt;h2&gt;Linode&lt;/h2&gt;
-&lt;p&gt;I’ve been using &lt;a href=&quot;https://www.linode.com/&quot;&gt;Linode&lt;/a&gt; for years without any major issues, so I signed up for a new server with them. I’m starting with a cheap $5/month server, which should be sufficient for my purposes.
-I selected an Ubuntu 18.04 LTS image, booted it up, and was running in a few minutes. After updating packages, I ran a few commands to install nginx, PHP, and MariaDB.&lt;/p&gt;
+&lt;h3&gt;Setting up a Linode Server&lt;/h3&gt;
+&lt;p&gt;First, I’ll set up a small server for these projects. I’ve been using &lt;a href=&quot;https://www.linode.com/&quot;&gt;Linode&lt;/a&gt; for years without any major issues, so I signed up for a new server with them.
+I’m starting with a cheap $5/month server, which should be sufficient for my purposes. I selected an Ubuntu 18.04 LTS image, booted it up, and was running in a few minutes.
+After updating packages, I ran a few commands to install nginx, PHP, and MariaDB.&lt;/p&gt;
 &lt;h3&gt;Installing nginx, MariaDB, and PHP&lt;/h3&gt;
 &lt;h4&gt;nginx&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; apt &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -14,7 +15,7 @@ I selected an Ubuntu 18.04 LTS image, booted it up, and was running in a few min
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; apt-install php-mysql
 &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; apt &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; php-fpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;Configuring a new website&lt;/h3&gt;
-&lt;p&gt;After all of the necessary components were installed, I created a new directory to host any PHP scripts. I will be using my personal domain for this site.&lt;/p&gt;
+&lt;p&gt;After all of the necessary components were installed, I created a new directory to host any PHP scripts. I started by creating a directory for my personal domain (larrykubin.com).&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; -p /var/www/html/larrykubin.com/public_html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Next up: adding an nginx configuration. I specified the server name and the root of the public_html directory I just created, then enabled the config.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;vi&lt;/span&gt; /etc/nginx/sites-available/larrykubin.com.conf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -47,13 +48,14 @@ sudo nginx -s reload&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token double-quoted-string string&quot;&gt;&quot;hello from php and nginx&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;DNS Configuration&lt;/h4&gt;
+&lt;h4&gt;Domain Name&lt;/h4&gt;
 &lt;p&gt;Since I wanted to use my personal domain for the site, I added DNS records in the Linode DNS Manager, and used GoDaddy to set my nameservers to ns1.linode.com, ns2.linode.com, ns3.linode.com, and ns4.linode.com.
-I waited a while and double checked that the DNS settings propagated.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[hello gatsby.js]]></title><description><![CDATA[Hey, it’s been a long time since I’ve written a blog. Here I’ll write a bit about technology, music, gaming, cities, and other personal…]]></description><link>https://larrykubin.github.io/hello-gatsbyjs/</link><guid isPermaLink="false">https://larrykubin.github.io/hello-gatsbyjs/</guid><pubDate>Sat, 17 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Hey, it’s been a long time since I’ve written a blog. Here I’ll write a bit about technology, music, gaming, cities, and other personal interests. For this site,
+I waited a while and double checked that the DNS settings propagated. &lt;/p&gt;
+&lt;p&gt;Boom, the site is up at &lt;a href=&quot;http://larrykubin.com&quot;&gt;http://larrykubin.com&lt;/a&gt;. For now, it is just a link to my Github Pages :). More to come.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[hello gatsby.js]]></title><description><![CDATA[Hey, it’s been a long time since I’ve written a blog. Here I’ll write a bit about technology, music, gaming, cities, and other personal…]]></description><link>https://larrykubin.github.io/hello-gatsbyjs/</link><guid isPermaLink="false">https://larrykubin.github.io/hello-gatsbyjs/</guid><pubDate>Sat, 17 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Hey, it’s been a long time since I’ve written a blog. Here I’ll write a bit about technology, music, gaming, cities, and other personal interests. For this site,
 I’ve decided to try out &lt;a href=&quot;https://www.gatsbyjs.org/&quot;&gt;Gatsby.js&lt;/a&gt;, a static site generator for React. In this post, I’ll talk
 about my favorite things about Gatsby so far. &lt;/p&gt;
 &lt;h4&gt;Markdown&lt;/h4&gt;
-&lt;p&gt;Gatsby has a variety of &lt;em&gt;plugins&lt;/em&gt; and &lt;em&gt;transformers&lt;/em&gt; for processing files. With the filesystem plugin with the markdown transformer, Gatsby
+&lt;p&gt;Gatsby has a variety of &lt;em&gt;plugins&lt;/em&gt; and &lt;em&gt;transformers&lt;/em&gt; for processing files. With the filesystem plugin and the markdown transformer, Gatsby
 can read a directory structure of markdown files, automatically compile them to HTML output, and create URLs for each post. &lt;/p&gt;
 &lt;p&gt;To create a new post, I simply create a new directory under “pages” and place an index.md file in it. The name of the directory becomes the URL slug,
 and the markdown file is re-rendered in the browser instantly when I save the file in my editor.&lt;/p&gt;
@@ -61,7 +63,7 @@ and the markdown file is re-rendered in the browser instantly when I save the fi
 &lt;p&gt;The starter blog comes with &lt;a href=&quot;https://prismjs.com/&quot;&gt;prismjs&lt;/a&gt;, which adds syntax highlighting for code snippets and has support for dozens of languages and themes.  &lt;/p&gt;
 &lt;p&gt;I chose the Okaidia theme and imported the CSS like so:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;prismjs/themes/prism-okaidia.css&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Here is how the syntax highlighting looks in Python, PHP, JavaScript, and Java:&lt;/p&gt;
+&lt;p&gt;Here is how the syntax highlighting looks for Python, PHP, JavaScript, and Java:&lt;/p&gt;
 &lt;h5&gt;Python&lt;/h5&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;world&quot;&lt;/span&gt;
@@ -85,13 +87,19 @@ and the markdown file is re-rendered in the browser instantly when I save the fi
 
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h4&gt;Modern JavaScript&lt;/h4&gt;
-&lt;p&gt;Hot reloading, components, asset pipeline on top of Webpack and Babel. more like an app.&lt;/p&gt;
+&lt;p&gt;Gatsby has a CLI that makes it easy to initialize and build a new project. It comes with Webpack and Babel preconfigured, so you get
+nice features like hot reloading, ES6, and an asset pipeline. I am starting with a simple static site, but you can easily create
+a route to a React component that requests an API and performs additional processing.&lt;/p&gt;
 &lt;h4&gt;Starters and Themes&lt;/h4&gt;
+&lt;p&gt;If you don’t want to spend a lot of time theming your site, Gatsby offers a nice selection of prebuilt themes and starter kits.
+A new project can be created by using an existing starter kit as a base. For example, the blog starter pack already has markdown,
+Google Analytics, and RSS feed support.&lt;/p&gt;
 &lt;h4&gt;Deploy to Github Pages&lt;/h4&gt;
-&lt;p&gt;No server here.&lt;/p&gt;
+&lt;p&gt;Gatsby makes it easy to publish to S3, Netlify, Github Pages, and other static hosts. Since I wanted to host this blog on Github Pages,
+I installed the gh-pages package like so:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; gh-pages --save-dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Then add following line in package.json&lt;/p&gt;
+&lt;p&gt;Then I added following line to my package.json:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;    &lt;span class=&quot;token string&quot;&gt;&quot;deploy&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;gatsby build &amp;amp;&amp;amp; gh-pages -d public -b master&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Then just run the deploy command with npm and all the JS, CSS, and HTML will be compiled. &lt;/p&gt;
+&lt;p&gt;Then anytime I want to publish a new version of the site, I just run the deploy command with npm: &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run deploy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;There are also some neat things with GraphQL. &lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;All of the JS, CSS, and HTML is compiled and pushed to Github Pages, where you are reading this now.&lt;/p&gt;</content:encoded></item></channel></rss>
